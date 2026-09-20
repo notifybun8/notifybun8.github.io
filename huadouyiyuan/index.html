@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="花都医院官网提供24小时急诊、专家门诊、妇产科、儿科、骨科及健康管理服务。查看专家团队、科室介绍、预约挂号流程及医院环境，致力于打造区域医疗中心。">
+    <meta name="keywords" content="花都医院,花都医院挂号,花都医院专家,花都医院急诊,花都医院地址">
+    <title>花都医院-专业医疗健康服务与预约挂号平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-light: #e6f0fa;
+            --secondary-color: #00a8cc;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --bg-white: #ffffff;
+            --bg-off-white: #f8f9fa;
+            --border-color: #e1e4e8;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #004494;
+            border-color: #004494;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-info span {
+            margin-right: 20px;
+        }
+
+        .main-header {
+            padding: 20px 0;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-gray);
+            margin-left: 10px;
+            background: var(--primary-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            height: auto;
+        }
+
+        /* Quick Access */
+        .quick-access {
+            background-color: var(--bg-white);
+            padding: 40px 0;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .access-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border-top: 4px solid transparent;
+        }
+
+        .access-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--primary-color);
+        }
+
+        .access-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .access-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .access-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Departments */
+        .departments {
+            padding: 80px 0;
+            background-color: var(--bg-off-white);
+        }
+
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .dept-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s;
+        }
+
+        .dept-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .dept-img {
+            height: 160px;
+            background-color: #ddd;
+            position: relative;
+        }
+        
+        .dept-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dept-info {
+            padding: 20px;
+        }
+
+        .dept-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .dept-info p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        .dept-link {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .dept-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Doctors */
+        .doctors {
+            padding: 80px 0;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .doc-card {
+            text-align: center;
+        }
+
+        .doc-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-color: #eee;
+            overflow: hidden;
+            border: 3px solid var(--primary-light);
+        }
+
+        .doc-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .doc-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .doc-card .title {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .doc-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* News Section */
+        .news {
+            padding: 80px 0;
+            background-color: var(--bg-off-white);
+        }
+
+        .news-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .news-date {
+            text-align: center;
+            min-width: 70px;
+            padding-top: 5px;
+        }
+
+        .news-date .day {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .news-date .month {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .news-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .news-content h4 a:hover {
+            color: var(--primary-color);
+        }
+
+        .news-content p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .news-sidebar h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .news-list-sm li {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+        }
+
+        .news-list-sm a {
+            font-size: 0.95rem;
+            display: block;
+            color: var(--text-dark);
+        }
+
+        .news-list-sm a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+            transition: padding 0.3s;
+        }
+
+        /* Info Banner */
+        .info-banner {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .info-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-banner-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .info-banner-text p {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            margin-top: 4px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .news-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .access-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .access-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-cta {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-info">
+                <span>🏥 24小时急诊服务</span>
+                <span>🕒 周一至周日 8:00-17:30</span>
+            </div>
+            <div class="top-links">
+                <a href="#">患者隐私保护</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="#">医院导航</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header>
+        <div class="container main-header">
+            <a href="#" class="logo">
+                花都医院
+                <span>HEALTH</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu-btn">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">科室导航</a></li>
+                    <li><a href="#">专家团队</a></li>
+                    <li><a href="#">就医指南</a></li>
+                    <li><a href="#">健康资讯</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="#" class="btn btn-outline">在线咨询</a>
+                <a href="#" class="btn btn-primary">预约挂号</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>守护花都百姓健康<br>打造区域医疗高地</h1>
+                <p>花都医院集医疗、教学、科研、预防保健为一体，拥有先进设备与资深专家团队，为您提供专业、便捷、温暖的医疗服务。</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">立即预约挂号</a>
+                    <a href="#" class="btn btn-outline">查看专家排班</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Placeholder for hospital building/doctor image -->
+                <img src="https://picsum.photos/seed/hospital_hero/600/400" alt="花都医院环境">
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="quick-access">
+        <div class="container">
+            <div class="access-grid">
+                <div class="access-card">
+                    <span class="access-icon">📅</span>
+                    <h3>预约挂号</h3>
+                    <p>网上/电话/现场预约</p>
+                </div>
+                <div class="access-card">
+                    <span class="access-icon">🔍</span>
+                    <h3>智能导诊</h3>
+                    <p>快速找到对应科室</p>
+                </div>
+                <div class="access-card">
+                    <span class="access-icon">📄</span>
+                    <h3>报告查询</h3>
+                    <p>检验检查结果在线看</p>
+                </div>
+                <div class="access-card">
+                    <span class="access-icon">👨‍⚕️</span>
+                    <h3>专家咨询</h3>
+                    <p>在线解答健康疑问</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments -->
+    <section class="departments">
+        <div class="container">
+            <div class="section-title">
+                <h2>重点科室</h2>
+                <p>汇聚学科带头人，开展高精尖诊疗技术</p>
+            </div>
+            <div class="dept-grid">
+                <article class="dept-card">
+                    <div class="dept-img">
+                        <img src="https://picsum.photos/seed/dept1/400/300" alt="心血管内科">
+                    </div>
+                    <div class="dept-info">
+                        <h3>心血管内科</h3>
+                        <p>擅长冠心病、高血压、心律失常等心血管疾病的诊治。</p>
+                        <a href="#" class="dept-link">了解更多 &rarr;</a>
+                    </div>
+                </article>
+                <article class="dept-card">
+                    <div class="dept-img">
+                        <img src="https://picsum.photos/seed/dept2/400/300" alt="骨科">
+                    </div>
+                    <div class="dept-info">
+                        <h3>骨科</h3>
+                        <p>开展微创关节置换、脊柱矫形手术，技术成熟。</p>
+                        <a href="#" class="dept-link">了解更多 &rarr;</a>
+                    </div>
+                </article>
+                <article class="dept-card">
+                    <div class="dept-img">
+                        <img src="https://picsum.photos/seed/dept3/400/300" alt="妇产科">
+                    </div>
+                    <div class="dept-info">
+                        <h3>妇产科</h3>
+                        <p>提供孕前检查、无痛分娩及妇科微创手术服务。</p>
+                        <a href="#" class="dept-link">了解更多 &rarr;</a>
+                    </div>
+                </article>
+                <article class="dept-card">
+                    <div class="dept-img">
+                        <img src="https://picsum.photos/seed/dept4/400/300" alt="儿科">
+                    </div>
+                    <div class="dept-info">
+                        <h3>儿科</h3>
+                        <p>专业诊治儿童常见病、多发病及疑难重症。</p>
+                        <a href="#" class="dept-link">了解更多 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors -->
+    <section class="doctors">
+        <div class="container">
+            <div class="section-title">
+                <h2>名医团队</h2>
+                <p>资深专家坐诊，为您保驾护航</p>
+            </div>
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="doc-avatar">
+                        <img src="https://picsum.photos/seed/doc1/200/200" alt="张伟主任">
+                    </div>
+                    <h3>张伟</h3>
+                    <p class="title">心血管内科 主任医师</p>
+                    <p>从事心血管临床工作30余年，发表学术论文20余篇。</p>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-avatar">
+                        <img src="https://picsum.photos/seed/doc2/200/200" alt="李秀兰主任">
+                    </div>
+                    <h3>李秀兰</h3>
+                    <p class="title">妇产科 副主任医师</p>
+                    <p>擅长高危妊娠管理及妇科微创手术，经验丰富。</p>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-avatar">
+                        <img src="https://picsum.photos/seed/doc3/200/200" alt="王强主任">
+                    </div>
+                    <h3>王强</h3>
+                    <p class="title">骨科 副主任医师</p>
+                    <p>精通关节镜微创手术，帮助无数患者重返运动。</p>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-avatar">
+                        <img src="https://picsum.photos/seed/doc4/200/200" alt="赵敏主任">
+                    </div>
+                    <h3>赵敏</h3>
+                    <p class="title">儿科 副主任医师</p>
+                    <p>擅长儿童呼吸系统疾病及过敏性疾病的诊治。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>医院动态</h2>
+                <p>关注花都医院最新资讯与医疗科普</p>
+            </div>
+            <div class="news-layout">
+                <div class="news-main">
+                    <div class="news-list">
+                        <article class="news-item">
+                            <div class="news-date">
+                                <div class="day">15</div>
+                                <div class="month">10月</div>
+                            </div>
+                            <div class="news-content">
+                                <h4><a href="#">花都医院举办“世界卒中日”大型义诊活动</a></h4>
+                                <p>为提高市民对脑卒中防治的认识，我院神经内科专家团队于10月29日在门诊大厅开展义诊及科普讲座...</p>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <div class="news-date">
+                                <div class="day">12</div>
+                                <div class="month">10月</div>
+                            </div>
+                            <div class="news-content">
+                                <h4><a href="#">我院引进国际先进PET-CT设备，助力精准诊疗</a></h4>
+                                <p>新设备投入使用后，将大幅提升肿瘤及心脑血管疾病的早期诊断能力，为患者提供更精准的治疗方案...</p>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <div class="news-date">
+                                <div class="day">08</div>
+                                <div class="month">10月</div>
+                            </div>
+                            <div class="news-content">
+                                <h4><a href="#">儿科门诊新增夜间急诊窗口，缓解就诊压力</a></h4>
+                                <p>针对儿童夜间发烧、咳嗽等常见病高发情况，医院特增设夜间急诊专科门诊，实行24小时值班制...</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <aside class="news-sidebar">
+                    <h3>热门专题</h3>
+                    <ul class="news-list-sm">
+                        <li><a href="#">流感高发季，如何科学预防？</a></li>
+                        <li><a href="#">高血压患者日常饮食指南</a></li>
+                        <li><a href="#">糖尿病足的早期识别与护理</a></li>
+                        <li><a href="#">春季过敏性疾病防治</a></li>
+                        <li><a href="#">儿童疫苗接种时间表</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <section class="info-banner">
+        <div class="container info-banner-content">
+            <div class="info-banner-text">
+                <h3>急诊绿色通道</h3>
+                <p>对于急性心肌梗死、严重创伤、脑卒中及多发伤患者，开通“先救治、后付费”绿色通道。</p>
+            </div>
+            <a href="#" class="btn" style="background: white; color: var(--primary-color);">查看详情</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h2>花都医院</h2>
+                    <p>致力于为花都及周边地区居民提供高水平的医疗服务。我们坚持“以患者为中心”的服务理念，不断优化就医流程，提升医疗质量。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">预约挂号</a></li>
+                        <li><a href="#">门诊时间</a></li>
+                        <li><a href="#">便民服务</a></li>
+                        <li><a href="#">投诉建议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>科室介绍</h4>
+                    <ul>
+                        <li><a href="#">内科系统</a></li>
+                        <li><a href="#">外科系统</a></li>
+                        <li><a href="#">妇儿中心</a></li>
+                        <li><a href="#">中医科</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系方式</h4>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>广州市花都区新华街道健康大道88号</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>020-12345678</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🕒</span>
+                        <span>急诊24小时开放</span>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 花都医院 版权所有 | 医疗广告审查证明号：(粤)医广[2023]第05-20-88号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+                      </html>

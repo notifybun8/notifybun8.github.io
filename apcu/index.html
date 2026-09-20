@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="APC UPS不间断电源专业指南：APC UPS电源选购、配置、维护与故障排查。提供APC品牌在线UPS、后备式与在线式电源对比，保障服务器与网络设备稳定运行。">
+    <meta name="keywords" content="apcups电源,APC UPS,不间断电源,ups选购指南,服务器电源">
+    <title>APC UPS电源 - 服务器不间断电源选购与维护指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004494;
+            --accent-color: #e74c3c;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 布局容器 */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* 内容区通用 */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 选购指南 */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .comparison-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .comparison-card .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .comparison-card ul {
+            margin-top: 20px;
+        }
+
+        .comparison-card li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .comparison-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 优势特点 */
+        .features-section {
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .feature-item h4 {
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* 常见问题 FAQ */
+        .faq-section {
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--text-light);
+            display: none;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: #d1d1d1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary-color);">
+                    <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                    <line x1="12" y1="2" x2="12" y2="12"></line>
+                </svg>
+                <span>APC UPS</span>电源专家
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#guide">选购指南</a></li>
+                    <li><a href="#features">产品优势</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                    <li><a href="#contact" class="cta-btn">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>守护您的数据与业务连续性</h1>
+                <p>APC UPS不间断电源为您提供稳定、可靠的电力保障。无论是家庭服务器、办公网络还是关键业务设备，我们都能有效应对市电波动与突发断电。</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>99%</h3>
+                        <p>市电波动过滤率</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10ms</h3>
+                        <p>切换响应时间</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>20+</h3>
+                        <p>年行业经验</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 选购指南 Section -->
+        <section id="guide">
+            <div class="container">
+                <div class="section-header">
+                    <h2>如何选择合适的APC UPS电源</h2>
+                    <p>根据您的负载设备类型和预算，选择最适合的UPS类型与功率容量。</p>
+                </div>
+
+                <div class="comparison-grid">
+                    <!-- 在线式 UPS -->
+                    <article class="comparison-card">
+                        <span class="icon">⚡</span>
+                        <h3>在线式 UPS</h3>
+                        <p>适合对电力质量要求极高的关键设备，如数据库服务器、医疗设备。</p>
+                        <ul>
+                            <li>零切换时间（毫秒级）</li>
+                            <li>双变换技术，净化电源</li>
+                            <li>电池供电时电压稳定</li>
+                            <li>保护设备免受电压波动影响</li>
+                        </ul>
+                    </article>
+
+                    <!-- 后备式 UPS -->
+                    <article class="comparison-card">
+                        <span class="icon">🔋</span>
+                        <h3>后备式 UPS</h3>
+                        <p>适合家用电脑、网络设备，提供基本的断电保护和短时续航。</p>
+                        <ul>
+                            <li>成本低廉，性价比高</li>
+                            <li>市电正常时直接供电</li>
+                            <li>电池供电时输出电压有波动</li>
+                            <li>适合短时间应急保护</li>
+                        </ul>
+                    </article>
+
+                    <!-- 在线互动式 UPS -->
+                    <article class="comparison-card">
+                        <span class="icon">🔄</span>
+                        <h3>在线互动式 UPS</h3>
+                        <p>平衡了性能与成本，适合中小企业办公环境和普通服务器。</p>
+                        <ul>
+                            <li>比后备式功能更强大</li>
+                            <li>具有自动电压调节功能</li>
+                            <li>电池切换时间极短</li>
+                            <li>噪音相对较低</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div style="margin-top: 40px; background: #f0f7ff; padding: 30px; border-radius: 8px; border-left: 5px solid var(--primary-color);">
+                    <h3 style="margin-bottom: 15px; color: var(--primary-color);">💡 选型小贴士</h3>
+                    <p>计算UPS功率时，请将所有连接设备的额定功率相加，并预留 20%-30% 的余量。例如，连接一台 300W 的电脑和一台 50W 的路由器，建议选择 500W 或 600W 的UPS。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品优势 Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>APC UPS 核心优势</h2>
+                    <p>采用先进的数字信号处理技术，确保设备在极端电力环境下依然安全运行。</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <h4>智能电池管理</h4>
+                        <p>自动电池测试与均衡，延长电池寿命，防止过充过放。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📡</div>
+                        <h4>网络管理</h4>
+                        <p>支持 SNMP 卡件，通过 Web 界面远程监控电源状态。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔌</div>
+                        <h4>多种接口</h4>
+                        <p>配备 USB、RS-232、DB-9 接口，兼容 Windows/macOS/Linux 系统。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚨</div>
+                        <h4>智能报警</h4>
+                        <p>LCD 屏幕显示详细信息，支持蜂鸣器与软件双重报警通知。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 FAQ -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于 APC UPS 电源使用中的疑难杂症。</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">APC UPS 电池多久需要更换一次？</div>
+                        <div class="faq-answer">
+                            <p>一般建议每 2-3 年检查一次电池健康状态。如果电池老化，UPS 可能无法提供足够的后备时间。建议在 UPS 使用 2 年后联系专业技术人员进行检测。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">UPS 能否带感性负载（如空调、电机）？</div>
+                        <div class="faq-answer">
+                            <p>普通的家用/办公型 APC UPS 通常不建议长期带感性负载，因为启动瞬间电流较大。如果必须带，请选择功率余量较大的机型（如 1000VA 以上），并确认 UPS 具备足够的浪涌容量。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">市电恢复后，UPS 电池需要多久充满？</div>
+                        <div class="faq-answer">
+                            <p>这取决于电池的容量和充电器的充电速率。通常 APC UPS 在正常市电供电下，约 4-6 小时可以将电池充满至 90% 以上，完全充满可能需要更长的时间。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">为什么 UPS 电池连接后开机无反应？</div>
+                        <div class="faq-answer">
+                            <p>请首先检查电源线是否插紧，插座是否有电。如果电源正常，尝试长按 UPS 前面板的“测试”或“复位”按钮 5-10 秒。如果问题依旧，可能是电池连接线松动或电池已报废。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系区域 -->
+        <section id="contact" style="background-color: var(--bg-light); text-align: center;">
+            <div class="container">
+                <h2 style="margin-bottom: 20px;">需要专业选型建议？</h2>
+                <p style="margin-bottom: 30px; color: var(--text-light);">我们的技术团队随时为您提供 APC UPS 电源的配置方案与售后支持。</p>
+                <a href="mailto:support@example.com" class="cta-btn" style="padding: 12px 30px; font-size: 1.1rem;">联系技术支持</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于 APC UPS</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">我们致力于为全球用户提供高品质的不间断电源解决方案，保护您的数据资产免受电力灾害的影响。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">产品中心</a></li>
+                        <li><a href="#">驱动下载</a></li>
+                        <li><a href="#">技术文档</a></li>
+                        <li><a href="#">故障排查</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持服务</h4>
+                    <ul>
+                        <li><a href="#">保修政策</a></li>
+                        <li><a href="#">电池更换服务</a></li>
+                        <li><a href="#">服务网点查询</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">官方博客</a></li>
+                        <li><a href="#">用户社区</a></li>
+                        <li><a href="#">隐私声明</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 APC UPS Power Solutions. All Rights Reserved. 本页面为技术展示示例。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他已打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

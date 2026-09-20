@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="老熟女生活分享与情感交流社区，探讨成熟女性的生活智慧与情感故事。">
+    <meta name="keywords" content="老熟女,成熟女性,生活智慧,情感交流">
+    <title>老熟女-成熟女性生活智慧与情感交流平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8d6e63;
+            --secondary-color: #d7ccc8;
+            --accent-color: #5d4037;
+            --bg-color: #fafafa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .search-bar button {
+            padding: 8px 16px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #efebe9 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(255,255,255,0.6);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 32px;
+        }
+
+        /* Section Styles */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            color: var(--text-main);
+        }
+
+        /* Featured Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 12px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .topic-list li {
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 8px;
+        }
+
+        .topic-list li:last-child {
+            border-bottom: none;
+        }
+
+        .topic-list a {
+            font-size: 0.95rem;
+            display: block;
+        }
+
+        .topic-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .topic-list span {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3e2723;
+            color: #d7ccc8;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                悦龄社
+            </a>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">情感故事</a>
+                <a href="#">生活美学</a>
+                <a href="#">心理专栏</a>
+                <a href="#">社区交流</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索内容...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索成熟女性的生活智慧</h1>
+            <p>分享成熟女性的独特魅力、情感经历与生活美学，在这里遇见更真实的自己。</p>
+            <div class="hero-tags">
+                <span class="tag">情感共鸣</span>
+                <span class="tag">生活美学</span>
+                <span class="tag">岁月沉淀</span>
+                <span class="tag">智慧人生</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Main Column -->
+        <section class="main-content">
+            <h2 class="section-title">精选专题</h2>
+            
+            <div class="grid-layout">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/old1/400/300" alt="成熟女性的优雅穿搭" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">优雅老去：成熟女性的穿搭艺术</h3>
+                        <p class="card-excerpt">探讨如何在岁月的流逝中保持时尚感，通过得体的穿搭展现成熟女性的独特韵味。</p>
+                        <div class="card-meta">
+                            <span>时尚生活</span>
+                            <span>2小时前</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/old2/400/300" alt="中年的情感智慧" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">中年夫妻的相处之道：沟通与包容</h3>
+                        <p class="card-excerpt">深入解析中年情感关系中的挑战与机遇，学习如何通过有效沟通维护长久的关系。</p>
+                        <div class="card-meta">
+                            <span>情感专栏</span>
+                            <span>5小时前</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/old3/400/300" alt="退休生活规划" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">退休生活规划指南：开启第二人生</h3>
+                        <p class="card-excerpt">为步入中年的朋友们提供实用的退休规划建议，帮助大家实现健康、充实的生活。</p>
+                        <div class="card-meta">
+                            <span>生活指南</span>
+                            <span>1天前</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/old4/400/300" alt="心理调适" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">心理调适：如何应对中年焦虑</h3>
+                        <p class="card-excerpt">面对职场压力与家庭责任，中年人如何进行有效的心理建设，保持积极心态。</p>
+                        <div class="card-meta">
+                            <span>心理健康</span>
+                            <span>2天前</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <button style="padding: 12px 30px; background-color: var(--accent-color); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem;">加载更多文章</button>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="widget">
+                <h3 class="widget-title">热门话题</h3>
+                <ul class="topic-list">
+                    <li>
+                        <a href="#">人到中年的感悟与收获</a>
+                        <span>1.2w 热度</span>
+                    </li>
+                    <li>
+                        <a href="#">如何与子女建立良好沟通</a>
+                        <span>8.5k 热度</span>
+                    </li>
+                    <li>
+                        <a href="#">中年女性的自我关爱</a>
+                        <span>6.3k 热度</span>
+                    </li>
+                    <li>
+                        <a href="#">优雅的老年生活规划</a>
+                        <span>4.1k 热度</span>
+                    </li>
+                    <li>
+                        <a href="#">职场中年的转型之路</a>
+                        <span>3.9k 热度</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">关于我们</h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">
+                    悦龄社致力于为成熟女性提供一个分享生活、交流心得的温暖社区。我们相信岁月赋予女性独特的智慧与魅力。
+                </p>
+                <a href="#" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 500;">了解更多 &rarr;</a>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>悦龄社</h4>
+                <p style="font-size: 0.9rem; line-height: 1.8; color: #a1887f;">
+                    专注于成熟女性的生活方式分享，涵盖情感、健康、时尚、职场等多个领域，帮助每一位女性优雅度过人生的每一个阶段。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">网站地图</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>友情链接</h4>
+                <ul>
+                    <li><a href="#">健康养生</a></li>
+                    <li><a href="#">时尚美妆</a></li>
+                    <li><a href="#">家庭生活</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 悦龄社. All Rights Reserved. 本站内容仅供交流学习使用，请文明上网。
+        </div>
+    </footer>
+
+</body>
+</html>

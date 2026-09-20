@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="区府二手房专业信息平台，提供区府周边优质房源查询、房价走势分析、购房指南及买卖交易流程解析。帮助用户快速找到心仪的区府二手房，规避购房风险。">
+    <meta name="keywords" content="区府二手房,区府二手房房价,区府二手房出售,区府二手房交易,区府房产">
+    <title>区府二手房-优质房源查询与购房指南服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f0f2f5;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --accent-color: #ff9800;
+            --border-color: #e1e4e8;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #f9fafb;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            padding: 8px 20px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
+            padding: 60px 20px;
+            color: var(--white);
+        }
+
+        .hero-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            display: flex;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            flex-wrap: wrap;
+        }
+
+        .input-group {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .input-group input, .input-group select {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 24px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e68900;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+            max-width: var(--container-width);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .number {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-item .label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        /* Listings Section */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-tab {
+            font-size: 14px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .filter-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: var(--white);
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d32f2f;
+            margin-bottom: 8px;
+        }
+
+        .price span {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .address {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 6px;
+            background-color: var(--secondary-color);
+            color: var(--text-secondary);
+            border-radius: 4px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--secondary-color);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .news-list li {
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+
+        .news-list a {
+            font-size: 14px;
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .news-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .guide-list li {
+            margin-bottom: 10px;
+        }
+
+        .guide-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-main);
+            padding: 8px;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        .guide-list a:hover {
+            background-color: #e2e6ea;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: var(--white);
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .guide-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .guide-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            transition: all 0.2s;
+        }
+
+        .guide-item:hover {
+            border-color: var(--primary-color);
+            background-color: #f0f7ff;
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 20px;
+        }
+
+        .guide-item h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .guide-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Simplified for mobile */
+            }
+            .search-box {
+                flex-direction: column;
+            }
+            .btn-primary {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .guide-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">🏠 <span>区府房产</span></a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">二手房</a>
+                <a href="#">租房</a>
+                <a href="#">房价行情</a>
+                <a href="#">购房指南</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-outline">登录</a>
+                <a href="#" class="btn-outline">发布房源</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>发现区府核心区优质二手房</h1>
+            <p>专注区府周边房产交易，海量真实房源，精准价格分析，助您安家区府</p>
+            <div class="search-box">
+                <div class="input-group">
+                    <label>所在区域</label>
+                    <select>
+                        <option>全区</option>
+                        <option>中心区</option>
+                        <option>东部新区</option>
+                        <option>北部产业区</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>房产类型</label>
+                    <select>
+                        <option>全部</option>
+                        <option>一室一厅</option>
+                        <option>两室一厅</option>
+                        <option>三室及以上</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>价格区间 (万)</label>
+                    <select>
+                        <option>不限</option>
+                        <option>100万以内</option>
+                        <option>100-200万</option>
+                        <option>200-500万</option>
+                        <option>500万以上</option>
+                    </select>
+                </div>
+                <button class="btn-primary">立即搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="number">1,245</span>
+            <span class="label">在售房源</span>
+        </div>
+        <div class="stat-item">
+            <span class="number">3.2%</span>
+            <span class="label">本月均价涨幅</span>
+        </div>
+        <div class="stat-item">
+            <span class="number">8,900+</span>
+            <span class="label">已成交记录</span>
+        </div>
+        <div class="stat-item">
+            <span class="number">50+</span>
+            <span class="label">入驻中介</span>
+        </div>
+    </div>
+
+    <main class="main-container">
+        <!-- 左侧主要内容 -->
+        <section class="content-area">
+            <div class="section-header">
+                <h2 class="section-title">区府热门二手房</h2>
+                <div class="filter-tabs">
+                    <span class="filter-tab active">最新上架</span>
+                    <span class="filter-tab">价格最低</span>
+                    <span class="filter-tab">看房最方便</span>
+                </div>
+            </div>
+
+            <div class="property-grid">
+                <!-- Card 1 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/house1/400/300" alt="区府花园小区">
+                        <span class="badge">急售</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="price">280<span>万</span></div>
+                        <h3 class="address">区府花园小区 3室2厅 南北通透</h3>
+                        <div class="tags">
+                            <span class="tag">满五唯一</span>
+                            <span class="tag">精装修</span>
+                        </div>
+                        <div class="card-footer">
+                            <span>89㎡ | 中楼层</span>
+                            <span>2015年建</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/house2/400/300" alt="阳光新城">
+                        <span class="badge">学区房</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="price">350<span>万</span></div>
+                        <h3 class="address">阳光新城 2室1厅 近区府政务中心</h3>
+                        <div class="tags">
+                            <span class="tag">近地铁</span>
+                            <span class="tag">简装</span>
+                        </div>
+                        <div class="card-footer">
+                            <span>72㎡ | 低楼层</span>
+                            <span>2018年建</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/house3/400/300" alt="翡翠湾">
+                        <span class="badge">急售</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="price">520<span>万</span></div>
+                        <h3 class="address">翡翠湾 4室2厅 豪华装修</h3>
+                        <div class="tags">
+                            <span class="tag">学区房</span>
+                            <span class="tag">大阳台</span>
+                        </div>
+                        <div class="card-footer">
+                            <span>142㎡ | 高楼层</span>
+                            <span>2012年建</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/house4/400/300" alt="区府壹号">
+                    </div>
+                    <div class="card-content">
+                        <div class="price">680<span>万</span></div>
+                        <h3 class="address">区府壹号 3室2厅 视野开阔</h3>
+                        <div class="tags">
+                            <span class="tag">景观房</span>
+                            <span class="tag">精装</span>
+                        </div>
+                        <div class="card-footer">
+                            <span>110㎡ | 高楼层</span>
+                            <span>2020年建</span>
+                        </div>
+                    </div>
+                </article>
+                 <!-- Card 5 -->
+                 <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/house5/400/300" alt="幸福里">
+                    </div>
+                    <div class="card-content">
+                        <div class="price">210<span>万</span></div>
+                        <h3 class="address">幸福里 2室1厅 刚需首选</h3>
+                        <div class="tags">
+                            <span class="tag">近公交</span>
+                            <span class="tag">毛坯</span>
+                        </div>
+                        <div class="card-footer">
+                            <span>65㎡ | 中楼层</span>
+                            <span>2016年建</span>
+                        </div>
+                    </div>
+                </article>
+                 <!-- Card 6 -->
+                 <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/house6/400/300" alt="锦绣家园">
+                    </div>
+                    <div class="card-content">
+                        <div class="price">290<span>万</span></div>
+                        <h3 class="address">锦绣家园 3室1厅 环境优美</h3>
+                        <div class="tags">
+                            <span class="tag">满二</span>
+                            <span class="tag">带车位</span>
+                        </div>
+                        <div class="card-footer">
+                            <span>95㎡ | 低楼层</span>
+                            <span>2010年建</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 右侧侧边栏 -->
+        <aside>
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">区府楼市资讯</h3>
+                <ul class="news-list">
+                    <li>
+                        <a href="#">区府新区规划发布，利好周边二手房升值</a>
+                        <span class="news-date">2小时前</span>
+                    </li>
+                    <li>
+                        <a href="#">2024年区府二手房成交数据出炉，价格趋稳</a>
+                        <span class="news-date">昨天</span>
+                    </li>
+                    <li>
+                        <a href="#">最新政策解读：首套房贷款利率下调对区府房产的影响</a>
+                        <span class="news-date">3天前</span>
+                    </li>
+                    <li>
+                        <a href="#">区府周边学区划分调整，家长关注热门楼盘</a>
+                        <span class="news-date">1周前</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">购房指南</h3>
+                <ul class="guide-list">
+                    <li><a href="#">二手房交易流程详解 <span>&gt;</span></a></li>
+                    <li><a href="#">如何查询房屋产权状况 <span>&gt;</span></a></li>
+                    <li><a href="#">二手房贷款计算器 <span>&gt;</span></a></li>
+                    <li><a href="#">房屋验房注意事项 <span>&gt;</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card" style="background: #e3f2fd; border: 1px solid #bbdefb;">
+                <h3 class="sidebar-title">专业咨询</h3>
+                <p style="font-size: 13px; color: #555; margin-bottom: 10px;">如有购房疑问，欢迎联系我们的专业顾问。</p>
+                <button class="btn-primary" style="margin-top: 0; width: 100%;">免费咨询</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- 购房知识普及 -->
+    <section class="guide-section">
+        <div class="section-header">
+            <h2 class="section-title">区府购房知识科普</h2>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-item">
+                <div class="icon-box">📍</div>
+                <h3>区域规划</h3>
+                <p>了解区府周边的交通、教育、医疗配套规划，是判断房产价值的关键。</p>
+            </div>
+            <div class="guide-item">
+                <div class="icon-box">💰</div>
+                <h3>税费计算</h3>
+                <p>掌握契税、个税、增值税等税费政策，避免交易成本超支。</p>
+            </div>
+            <div class="guide-item">
+                <div class="icon-box">🔍</div>
+                <h3>房屋查档</h3>
+                <p>购买前务必核实房屋抵押、查封情况，确保产权清晰无纠纷。</p>
+            </div>
+            <div class="guide-item">
+                <div class="icon-box">🛡️</div>
+                <h3>合同条款</h3>
+                <p>仔细审核买卖合同中的违约责任和付款节点，保障自身权益。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>🏠 区府房产</h2>
+                <p style="font-size: 14px; line-height: 1.8; color: #999;">
+                    专注于区府区域房产信息整合与服务，致力于为购房者提供真实、透明、高效的二手房交易体验。我们连接房源与需求，让您的安家之路更简单。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">二手房出售</a></li>
+                    <li><a href="#">二手房出租</a></li>
+                    <li><a href="#">房价走势</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>购房服务</h4>
+                <ul>
+                    <li><a href="#">新房推荐</a></li>
+                    <li><a href="#">二手房评估</a></li>
+                    <li><a href="#">贷款计算</a></li>
+                    <li><a href="#">本地资讯</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li>电话：400-123-4567</li>
+                    <li>邮箱：support@qufu.com</li>
+                    <li>地址：区府大道88号房产大厦</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 区府房产服务平台 版权所有
+        </div>
+    </footer>
+
+</body>
+  </html>
